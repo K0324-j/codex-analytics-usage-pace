@@ -1,0 +1,146 @@
+.codex-usage-pace {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, Canvas 88%, currentColor 4%);
+  color: inherit;
+  font: inherit;
+}
+
+.codex-usage-pace *,
+.codex-usage-pace *::before,
+.codex-usage-pace *::after {
+  box-sizing: border-box;
+}
+
+.codex-usage-pace__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.codex-usage-pace__title {
+  font-size: 12px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+
+.codex-usage-pace__badge {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.codex-usage-pace__badge--relaxed {
+  background: color-mix(in srgb, #0f9f6e 18%, transparent);
+  color: #047857;
+}
+
+.codex-usage-pace__badge--normal {
+  background: color-mix(in srgb, #2563eb 15%, transparent);
+  color: #1d4ed8;
+}
+
+.codex-usage-pace__badge--high {
+  background: color-mix(in srgb, #d97706 18%, transparent);
+  color: #b45309;
+}
+
+.codex-usage-pace__badge--over {
+  background: color-mix(in srgb, #dc2626 18%, transparent);
+  color: #b91c1c;
+}
+
+.codex-usage-pace__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.codex-usage-pace__metric {
+  min-width: 0;
+}
+
+.codex-usage-pace__metric span,
+.codex-usage-pace__bar-label span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.35;
+  opacity: 0.65;
+}
+
+.codex-usage-pace__metric strong,
+.codex-usage-pace__bar-label strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.codex-usage-pace__bars {
+  display: grid;
+  gap: 8px;
+}
+
+.codex-usage-pace__bar-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.codex-usage-pace__bar-track {
+  position: relative;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.codex-usage-pace__bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  min-width: 2px;
+  border-radius: inherit;
+}
+
+.codex-usage-pace__bar-fill--used {
+  background: #14b8a6;
+}
+
+.codex-usage-pace__bar-fill--elapsed {
+  background: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .codex-usage-pace {
+    background: color-mix(in srgb, Canvas 78%, currentColor 7%);
+  }
+
+  .codex-usage-pace__badge--relaxed {
+    color: #6ee7b7;
+  }
+
+  .codex-usage-pace__badge--normal {
+    color: #93c5fd;
+  }
+
+  .codex-usage-pace__badge--high {
+    color: #fbbf24;
+  }
+
+  .codex-usage-pace__badge--over {
+    color: #fca5a5;
+  }
+}

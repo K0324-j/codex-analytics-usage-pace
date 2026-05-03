@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Codex Analytics Usage Pace",
+  "version": "0.1.0",
+  "description": "Codex analytics usage-limit cards with pace, elapsed time, and reset-time indicators.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://codex.openai.com/*",
+        "https://platform.openai.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
