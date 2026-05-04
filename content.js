@@ -188,6 +188,20 @@
       return date;
     }
 
+    const timeOnly = text.match(/(?:^|[^\d])(\d{1,2}):(\d{2})(?:[^\d]|$)/);
+    if (timeOnly) {
+      const current = new Date(now);
+      const hours = Number(timeOnly[1]);
+      const minutes = Number(timeOnly[2]);
+      if (hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59) {
+        const date = new Date(current.getFullYear(), current.getMonth(), current.getDate(), hours, minutes);
+        if (date.getTime() < now - 60 * 1000) {
+          date.setDate(date.getDate() + 1);
+        }
+        return date;
+      }
+    }
+
     return parseRelativeReset(text, now);
   }
 
