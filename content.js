@@ -16,6 +16,7 @@
     {
       id: "weekly-limit",
       title: "週あたりの使用制限",
+      aliases: ["1週間の使用上限"],
       periodMs: 7 * 24 * 60 * 60 * 1000,
       kind: "week",
     },
@@ -40,22 +41,28 @@
   }
 
   function findLimitCards(target) {
+    const titles = getTargetTitles(target);
     const titleNodes = Array.from(document.querySelectorAll("h1,h2,h3,h4,h5,h6,p,span,div"))
-      .filter((node) => normalizeText(node.textContent) === target.title);
+      .filter((node) => titles.includes(normalizeText(node.textContent)));
 
     const cards = [];
     for (const titleNode of titleNodes) {
-      const card = findCardContainer(titleNode, target.title);
+      const matchedTitle = normalizeText(titleNode.textContent);
+      const card = findCardContainer(titleNode, matchedTitle);
       if (!card || cards.includes(card)) continue;
 
       const cardText = normalizeText(card.textContent);
-      if (!cardText.includes(target.title)) continue;
+      if (!titles.some((title) => cardText.includes(title))) continue;
       if (EXCLUDED_TITLES.some((title) => title !== target.title && cardText.includes(title))) continue;
 
       cards.push(card);
     }
 
     return cards;
+  }
+
+  function getTargetTitles(target) {
+    return [target.title].concat(target.aliases || []);
   }
 
   function findCardContainer(startNode, title) {
