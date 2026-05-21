@@ -16,7 +16,7 @@
     {
       id: "weekly-limit",
       title: "週あたりの使用制限",
-      aliases: ["1週間の使用上限"],
+      aliases: ["1週間の使用上限","週間利用上限"],
       periodMs: 7 * 24 * 60 * 60 * 1000,
       kind: "week",
     },
